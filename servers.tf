@@ -1,16 +1,15 @@
 resource "linode_linode" "ci" {
-  image  = "${var.linode_image}"
-  kernel = "${var.linode_kernel}"
-  group  = "${var.linode_group}"
-  name   = "${var.linode_name}"
-  region = "${var.linode_region}"
-  size   = "${var.linode_size}"
-
+  image  = "${var.LINODE_IMAGE}"
+  kernel = "${var.LINODE_KERNEL}"
+  name   = "${var.LINODE_NAME}"
+  group  = "${var.LINODE_GROUP}"
+  region = "${var.LINODE_REGION}"
+  size   = "${var.LINODE_SIZE}"
   status = "on"
 
   ipv6               = true
   private_networking = true
 
   ssh_key       = "${file("~/.ssh/id_rsa")}"
-  root_password = "${var.linode_root_password}"
+  root_password = "${var.LINODE_ROOT_PASSWORD}"
 }
